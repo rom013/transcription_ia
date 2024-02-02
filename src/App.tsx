@@ -6,8 +6,23 @@ import { Label } from "./components/ui/label";
 import { Select, SelectItem, SelectContent, SelectTrigger, SelectValue } from "./components/ui/select";
 import { Slider } from "./components/ui/slider";
 import { VideoInputForm } from "./components/video-input-form";
+import { PromptSelect } from "./components/prompt-select";
+import { useState } from "react";
+import { useCompletion } from "ai/react";
 
 export function App() {
+	const [temperature, setTemperature] = useState(0.5)
+	const [videoId, setVideoId] = useState<string | null>(null)
+	
+
+	const {input, setInput, handleInputChange, handleSubmit, completion, isLoading} = useCompletion({
+		api: 'http://localhost:3333/ai/complete',
+		body: {
+			videoId,
+			temperature
+		}
+	})
+
 	return (
 		<div className="min-h-screen flex flex-col">
 			<header
@@ -35,11 +50,14 @@ export function App() {
 						<Textarea
 							className="resize-none p-5 leading-relaxed'"
 							placeholder="Inclua um prompt para a IA..."
+							value={input}
+							onChange={handleInputChange}
 						/>
 						<Textarea
 							className="resize-none p-5 leading-relaxed'"
 							placeholder="Resultado gerado pela IA"
 							readOnly
+							value={completion}
 						/>
 					</div>
 					<p
@@ -52,24 +70,18 @@ export function App() {
 				<aside
 					className="w-80 space-y-6"
 				>
-					<VideoInputForm/>
+					<VideoInputForm onVideoUploaded={setVideoId} />
+
+					<Separator/>
 
 					<form
 						className="space-y-6"
+						onSubmit={handleSubmit}
 					>
 						<div className="space-y-2">
 							<Label>Prompt</Label>
 
-							<Select>
-								<SelectTrigger>
-									<SelectValue placeholder="Selecione um prompt" />
-								</SelectTrigger>
-
-								<SelectContent>
-									<SelectItem value="desc" >Titulo para o youtube</SelectItem>
-									<SelectItem value="title" >Descrição para o youtube</SelectItem>
-								</SelectContent>
-							</Select>
+							<PromptSelect onPromptSelected={setInput} />
 
 							<span
 								className="text-sm block text-muted-foreground italic"
@@ -106,6 +118,8 @@ export function App() {
 								min={0}
 								max={1}
 								step={0.1}
+								value={[temperature]}
+								onValueChange={value => setTemperature(value[0])}
 							/>
 
 							<span
@@ -119,7 +133,11 @@ export function App() {
 
 
 
-						<Button type="submit" className="w-full">
+						<Button 
+							type="submit" 
+							className="w-full"
+							disabled={isLoading}
+						>
 							Executar 
 							<Wand2 className="h-4 w-4 ml-2"/>
 						</Button>
