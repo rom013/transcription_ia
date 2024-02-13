@@ -1,6 +1,8 @@
 # Transcription AI
-
-<img src="/thumb.png" alt="Thumb">
+<p align="center">
+<img src="./public/thumb.png" alt="Thumb" width="70%">
+  
+</p>
 
 ## 🚀 Instalando Transcription AI
 
