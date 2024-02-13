@@ -1,30 +1,52 @@
-# React + TypeScript + Vite
+# Transcription AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="/thumb.png" alt="Thumb">
 
-Currently, two official plugins are available:
+## 🚀 Instalando Transcription AI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para instalar o Transcription AI, siga estas etapas:
 
-## Expanding the ESLint configuration
+Clonar projeto:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+git clone https://github.com/rom013/transcription_ia.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Instalar pacotes de dependências:
+
+```
+npm install
+```
+
+Executar aplicação:
+
+```
+npm run dev
+```
+
+## ☕ Usando
+
+Para usar transcription ai, siga estas etapas:
+
+1. Escolha um vídeo, de preferência curto;
+2. Insira sobre o principal assunto do vídeo em: "Prompt de transcrição";
+3. Escolha o prompt em "Prompt";
+4. Escolha qual o modelo do chat gpt você quer
+5. Escolha qual a temperatura da geração (valores mais altos tendem a deixar o resultado mais criativo e com possíveis erros)
+6. Agora execute a transcrição e aguarde a mágica acontecer (se o vídeo for muito longo a transcrição pode demorar)
+
+***
+⚠ Esse repositório é a versão front-end da aplicação, lembre-se de executar o back-end antes de executar esse. 
+***
+
+## 📫 Contribuindo para transcription ai
+
+Para contribuir com transcription ai, siga estas etapas:
+
+1. Bifurque este repositório.
+2. Crie um branch: `git checkout -b <nome_branch>`.
+3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
+4. Envie para o branch original: `git push origin transcription ai / <local>`
+5. Crie a solicitação de pull.
+
+Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
