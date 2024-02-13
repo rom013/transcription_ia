@@ -38,7 +38,7 @@ Para usar transcription ai, siga estas etapas:
 6. Agora execute a transcrição e aguarde a mágica acontecer (se o vídeo for muito longo a transcrição pode demorar)
 
 ***
-⚠ Esse repositório é a versão front-end da aplicação, lembre-se de executar o back-end antes de executar esse. 
+⚠ Esse repositório é a versão front-end da aplicação, lembre-se de executar o back-end antes de executar esse. [api-transcription-ai](https://github.com/rom013/api-transcription-ai)
 ***
 
 ## 📫 Contribuindo para transcription ai
